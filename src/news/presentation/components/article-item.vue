@@ -50,10 +50,14 @@ async function shareArticle() {
         <span class="flex align-items-center justify-content-center">
           {{ article.source.name }}
         </span>
-
       </p>
       <p class="flex align-content-start flex-wrap">
         <span class="text-sm">{{ article.getFormatedPublishedAt() }}</span>
+      </p>
+    </template>
+    <template #content>
+      <p class="flex align-content-start flex-wrap mt-4">
+        {{ article.description }}
       </p>
     </template>
     <template #footer>
