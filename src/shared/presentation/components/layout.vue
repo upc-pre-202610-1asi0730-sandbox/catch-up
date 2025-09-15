@@ -20,7 +20,6 @@ import {computed, onMounted, onUpdated, ref} from "vue";
   function setSource(source) {
     console.log("Selected source:", source);
     newsStore.setCurrentSource(source);
-    newsStore.loadArticlesForCurrentSource(source);
     toggleDrawer();
   };
 
