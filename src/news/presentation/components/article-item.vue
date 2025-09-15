@@ -9,7 +9,7 @@ const {article} = props;
 const emit = defineEmits(['tooltip-showed']);
 
 async function shareArticle() {
-  const shareData = {title: this.article.title, url: this.article.url};
+  const shareData = {title: article["title"], url: article["url"]};
   if (navigator.share) {
     try {
       await navigator.share(shareData);
@@ -19,7 +19,7 @@ async function shareArticle() {
     }
   } else {
     try {
-      await navigator.clipboard.writeText(this.article.url);
+      await navigator.clipboard.writeText(article["url"]);
       emit('tooltip-showed', this.article.url);
       console.log('Article URL copied to clipboard');
     } catch (err) {
