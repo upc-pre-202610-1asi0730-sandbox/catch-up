@@ -5,6 +5,7 @@ import i18n from "./i18n.js";
 import PrimeVue from 'primevue/config';
 import Material from '@primeuix/themes/material';
 import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
 import {Button, SelectButton} from "primevue";
 
 createApp(App)
