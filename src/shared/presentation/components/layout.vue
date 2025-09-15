@@ -17,8 +17,8 @@ import {computed, onMounted, onUpdated, ref} from "vue";
   const sources = computed(() => newsStore.sources);
   const errors = computed(() => newsStore.errors);
 
-  function setSource(source) {
-    console.log("Selected source:", source);
+  const setSource = source => {
+    console.log(`Selected source: ${source["id"]}`);
     newsStore.setCurrentSource(source);
     toggleDrawer();
   };
