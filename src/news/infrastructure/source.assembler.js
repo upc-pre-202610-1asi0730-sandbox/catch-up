@@ -1,9 +1,9 @@
 
 import {Source} from "../domain/model/source.entity.js";
-import {LogoApi} from "../../shared/infrastructure/logo-api.js";
+import {LogoDevApi} from "../../shared/infrastructure/logo-dev-api.js";
 
 
-const logoApi = new LogoApi();
+const logoApi = new LogoDevApi();
 
 export class SourceAssembler {
     static toEntitiesFromResponse(response) {
