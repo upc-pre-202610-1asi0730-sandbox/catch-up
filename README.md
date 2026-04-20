@@ -75,7 +75,7 @@ src/
 
 ## Architecture Notes
 
-The codebase follows a feature-first, layered organization:
+The codebase follows a domain-drive-design approach with inner layered organization:
 
 - `domain`: core entities.
 - `application`: state and app-level behavior (`news.store.js`).
@@ -87,7 +87,8 @@ The codebase follows a feature-first, layered organization:
 - i18n setup: `src/i18n.js`
 - dictionaries: `src/locales/en.json`, `src/locales/es.json`
 
-## Product and Design Docs
+## Project Documentation
+This project includes documentation for user stories and a class diagram:
 
 - User stories: `docs/user-stories.md`
 - Class diagram: `docs/class-diagram.puml`
