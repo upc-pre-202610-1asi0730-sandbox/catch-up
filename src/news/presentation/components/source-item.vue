@@ -1,8 +1,11 @@
 <script setup lang="js">
   import {Source} from "../../domain/model/source.entity.js";
+  import {toRefs} from "vue";
 
   const props = defineProps({ source: { type: Source, required: true } });
   const emit  = defineEmits(['source-selected']);
+
+  const { source } = toRefs(props);
 
   function emitSourceSelectedEvent() {
     emit('source-selected', props.source);
