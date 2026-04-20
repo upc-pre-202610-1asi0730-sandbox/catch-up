@@ -1,8 +1,9 @@
 <script setup lang="js">
 import ArticleItem from "./article-item.vue";
+import {toRefs} from "vue";
 
 const props = defineProps({ articles: { type: Array, required: true } });
-const { articles } = props;
+const { articles } = toRefs(props);
 
 </script>
 
