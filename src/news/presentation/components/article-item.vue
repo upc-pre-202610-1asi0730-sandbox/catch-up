@@ -1,11 +1,12 @@
 <script lang="js" setup>
 import {useI18n} from "vue-i18n";
 import {Article} from "../../domain/model/article.entity.js";
+import {toRefs} from "vue";
 
 const {t} = useI18n();
 
 const props = defineProps({article: {type: Article, required: true}});
-const {article} = props;
+const {article} = toRefs(props);
 const emit = defineEmits(['tooltip-showed']);
 
 async function shareArticle() {
