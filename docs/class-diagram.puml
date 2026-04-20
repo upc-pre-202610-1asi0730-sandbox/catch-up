@@ -66,7 +66,7 @@ package "news.presentation.components" {
 }
 
 package "shared.infrastructure" {
-  class LogoApi {
+  class LogoDevApi {
     + getUrlToLogo(source)
   }
 }
@@ -102,7 +102,7 @@ newsStore ..> "news.infrastructure.SourceAssembler" : uses
 ArticleAssembler ..> "news.domain.model.Article" : creates
 ArticleAssembler ..> SourceAssembler : uses
 SourceAssembler ..> "news.domain.model.Source" : creates
-SourceAssembler ..> "shared.infrastructure.LogoApi" : uses
+SourceAssembler ..> "shared.infrastructure.LogoDevApi" : uses
 ArticleList --> ArticleItem : uses
 ArticleItem --> Article : uses
 SourceList --> SourceItem : uses
