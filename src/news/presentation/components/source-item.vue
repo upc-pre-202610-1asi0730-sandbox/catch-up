@@ -2,11 +2,36 @@
   import {Source} from "../../domain/model/source.entity.js";
   import {toRefs} from "vue";
 
+  /**
+   * Presentation component for a single source option.
+   *
+   * @remarks
+   * This component emits user intent; source selection state is managed in
+   * the application layer.
+   */
+
+  /**
+   * @typedef {Object} SourceItemProps
+   * @property {Source} source
+   */
+
+  /**
+   * @typedef {Object} SourceItemEmits
+   * @property {(event: 'source-selected', source: Source) => void} emit
+   */
+
+  /** @type {SourceItemProps} */
   const props = defineProps({ source: { type: Source, required: true } });
+  /** @type {SourceItemEmits['emit']} */
   const emit  = defineEmits(['source-selected']);
 
   const { source } = toRefs(props);
 
+  /**
+   * Emits selected source to the parent component.
+   *
+   * @returns {void}
+   */
   function emitSourceSelectedEvent() {
     emit('source-selected', props.source);
   }

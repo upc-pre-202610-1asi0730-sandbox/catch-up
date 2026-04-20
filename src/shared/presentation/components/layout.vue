@@ -7,17 +7,39 @@ import ArticleList from "../../../news/presentation/components/article-list.vue"
 import UnavailableContent from "../../../news/presentation/components/unavailable-content.vue";
 import FooterContent from "./footer-content.vue";
 
+/**
+ * Main presentation layout for the news feature.
+ *
+ * @remarks
+ * Coordinates UI state and delegates business/application logic to `newsStore`.
+ */
+
 const drawerVisible = ref(false);
 
+/**
+ * Toggles the source drawer visibility.
+ *
+ * @returns {void}
+ */
 const toggleDrawer = () => {
   drawerVisible.value = !drawerVisible.value;
 };
 
 
+/** @type {import('vue').ComputedRef<import('../../../news/domain/model/source.entity.js').Source[]>} */
 const sources = computed(() => newsStore.sources);
+/** @type {import('vue').ComputedRef<Array<unknown>>} */
 const errors = computed(() => newsStore.errors);
+/** @type {import('vue').ComputedRef<import('../../../news/domain/model/article.entity.js').Article[]>} */
 let articles = computed(() => newsStore.articles);
 const rerenderKey = ref(0);
+
+/**
+ * Selects a source and refreshes article projections.
+ *
+ * @param {import('../../../news/domain/model/source.entity.js').Source} source
+ * @returns {void}
+ */
 const setSource = source => {
   newsStore.setCurrentSource(source);
   articles = computed(() => newsStore.articles);

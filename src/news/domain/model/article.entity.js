@@ -1,6 +1,22 @@
 import {Source} from "./source.entity.js";
 
+/**
+ * @typedef {Object} ArticleProps
+ * @property {string} [title]
+ * @property {string} [description]
+ * @property {string} [url]
+ * @property {string} [urlToImage]
+ * @property {import('./source.entity.js').SourceProps | Source | null} [source]
+ * @property {string|Date} [publishedAt]
+ */
+
+/**
+ * Domain entity representing a news article.
+ */
 export class Article {
+    /**
+     * @param {ArticleProps} [props]
+     */
     constructor({title = '', description = '', url = '', urlToImage = '', source = null, publishedAt = ''}) {
         this.title = title;
         this.description = description;
@@ -10,6 +26,11 @@ export class Article {
         this.publishedAt = new Date(publishedAt);
     }
 
+    /**
+     * Formats publication date for display purposes.
+     *
+     * @returns {string}
+     */
     getFormatedPublishedAt() {
         return this.publishedAt.toLocaleDateString('en-US', {
             year: 'numeric',

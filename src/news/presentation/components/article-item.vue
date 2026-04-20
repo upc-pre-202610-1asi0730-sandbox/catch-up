@@ -3,12 +3,37 @@ import {useI18n} from "vue-i18n";
 import {Article} from "../../domain/model/article.entity.js";
 import {toRefs} from "vue";
 
+/**
+ * Presentation component for a single article card.
+ *
+ * @remarks
+ * It renders domain data and emits UI events, while state orchestration stays
+ * in the application layer.
+ */
+
+/**
+ * @typedef {Object} ArticleItemProps
+ * @property {Article} article
+ */
+
+/**
+ * @typedef {Object} ArticleItemEmits
+ * @property {(event: 'tooltip-showed', articleUrl: string) => void} emit
+ */
+
 const {t} = useI18n();
 
+/** @type {ArticleItemProps} */
 const props = defineProps({article: {type: Article, required: true}});
 const {article} = toRefs(props);
+/** @type {ArticleItemEmits['emit']} */
 const emit = defineEmits(['tooltip-showed']);
 
+/**
+ * Uses Web Share API when available; otherwise copies article URL.
+ *
+ * @returns {Promise<void>}
+ */
 async function shareArticle() {
   const shareData = {title: article["title"], url: article["url"]};
   if (navigator.share) {

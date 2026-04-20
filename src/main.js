@@ -8,6 +8,13 @@ import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
 import {Avatar, Button, Card, Drawer, Image, Menu, Menubar, SelectButton, Toolbar, Tooltip} from "primevue";
 
+/**
+ * Application composition root.
+ *
+ * @remarks
+ * Wires cross-cutting services and UI framework components before mounting
+ * the presentation shell.
+ */
 
 createApp(App)
     .use(i18n)

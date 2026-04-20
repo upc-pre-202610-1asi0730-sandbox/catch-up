@@ -1,5 +1,7 @@
 <script setup lang="js">
-
+/**
+ * Presentation component that exposes available locales from vue-i18n.
+ */
 </script>
 
 <template>

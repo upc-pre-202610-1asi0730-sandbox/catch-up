@@ -1,8 +1,21 @@
 <script setup lang="js">
   import {useI18n} from "vue-i18n";
+  import {toRefs} from "vue";
+
+  /**
+   * Presentation fallback component for infrastructure/application errors.
+   */
+
+  /**
+   * @typedef {Object} UnavailableContentProps
+   * @property {Array<unknown>} errors
+   */
+
   const { t } = useI18n();
+
+  /** @type {UnavailableContentProps} */
   const props = defineProps({ errors: null});
-  const { errors } = props;
+  const { errors } = toRefs(props);
 </script>
 
 <template>

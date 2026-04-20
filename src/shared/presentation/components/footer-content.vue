@@ -1,5 +1,9 @@
 <script setup lang="js">
   import {useI18n} from "vue-i18n";
+
+  /**
+   * Shared presentation footer with attribution and localization support.
+   */
   const { t } = useI18n();
 </script>
 
