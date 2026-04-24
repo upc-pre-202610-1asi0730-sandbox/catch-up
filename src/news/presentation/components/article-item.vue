@@ -35,7 +35,8 @@ const emit = defineEmits(['tooltip-showed']);
  * @returns {Promise<void>}
  */
 async function shareArticle() {
-  const shareData = {title: article["title"], url: article["url"]};
+  let articleToShare = article.value;
+  const shareData = {title: articleToShare["title"], url: articleToShare["url"]};
   if (navigator.share) {
     try {
       await navigator.share(shareData);
@@ -45,7 +46,7 @@ async function shareArticle() {
     }
   } else {
     try {
-      await navigator.clipboard.writeText(article["url"]);
+      await navigator.clipboard.writeText(shareData["url"]);
       emit('tooltip-showed', this.article.url);
       console.log('Article URL copied to clipboard');
     } catch (err) {
