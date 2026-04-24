@@ -92,7 +92,7 @@ async function shareArticle() {
         <a :href="article.url" target="_blank">{{ t('read-more') }}</a>
         <span class="p-spacer"></span>
         <pv-button
-            v-tooltip="t('article.copy-to-clipboard')"
+            tooltip="t('article.copy-to-clipboard')"
             :label="t('article.share')"
             aria-label="Share article"
             class="p-button-text p-button-sm"
